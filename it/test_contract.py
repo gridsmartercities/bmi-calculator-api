@@ -5,4 +5,4 @@ import unittest
 class ContractTests(unittest.TestCase):
 
     def test_(self):
-       pass
+        pass
