@@ -43,7 +43,7 @@ phases:
       # Running bandit for security testing
       - $TAG "Bandit tests" "bandit -r -q ."
       # Running all unittests
-      - $TAG "Unit tests" "coverage run --branch --include=src/*.py,src/*/*.py,src/*/*/*.py -m unittest tests/test_*.py tests/*/test_*.py tests/*/*/test_*.py"
+      - $TAG "Unit tests" "coverage run --branch -m unittest"
       # Checking that the code is 100% covered by unit tests
       - $TAG "Coverage check" "coverage report -m --skip-covered --fail-under=100 --omit=tests/*,it/*"
   build:

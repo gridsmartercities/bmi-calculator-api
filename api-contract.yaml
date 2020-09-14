@@ -12,16 +12,20 @@ paths:
           name: height
           description: The height in centimeters
           schema:
-            type: number
+            type: integer
             format: int32
+            minimum: 1
+            maximum: 999
           required: true
           example: 180
         - in: query
           name: weight
           description: The weight in kilograms
           schema:
-            type: number
+            type: integer
             format: int32
+            minimum: 1
+            maximum: 999
           required: true
           example: 80
       responses:
@@ -31,18 +35,48 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/BMIResponse"
+          headers:
+            Access-Control-Allow-Headers:
+              schema:
+                type: "string"
+            Access-Control-Allow-Methods:
+              schema:
+                type: "string"
+            Access-Control-Allow-Origin:
+              schema:
+                type: "string"
         400:
           description: bad request
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+          headers:
+            Access-Control-Allow-Headers:
+              schema:
+                type: "string"
+            Access-Control-Allow-Methods:
+              schema:
+                type: "string"
+            Access-Control-Allow-Origin:
+              schema:
+                type: "string"
         500:
           description: Internal Server Error
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+          headers:
+            Access-Control-Allow-Headers:
+              schema:
+                type: "string"
+            Access-Control-Allow-Methods:
+              schema:
+                type: "string"
+            Access-Control-Allow-Origin:
+              schema:
+                type: "string"
       x-amazon-apigateway-integration:
         uri:
           Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${BMICalculator.Arn}/invocations
@@ -58,7 +92,7 @@ components:
       properties:
         bmi:
           type: number
-          format: int32
+          format: float
           description: The Calculated BMI
     Error:
       type: object

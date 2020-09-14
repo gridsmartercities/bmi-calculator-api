@@ -1,7 +1,8 @@
 from http import HTTPStatus
+import json
 
-from aws_lambda_decorators import (cors, log, response_body_as_json, extract_from_event, Parameter, Mandatory, Minimum,
-                                   Type, handle_exceptions, ExceptionHandler)
+from aws_lambda_decorators import (log, extract_from_event, Parameter, Mandatory, Minimum, Type, handle_exceptions,
+                                   ExceptionHandler, cors)
 from src.logger import get_logger
 
 
@@ -11,9 +12,8 @@ LOGGER = get_logger(__name__)
 GENERIC_ERROR = "Internal error"
 
 
-@cors()
 @log(parameters=True, response=True)
-@response_body_as_json
+@cors(allow_origin="*", allow_methods="GET", allow_headers="Content-Type,Authorization")
 @handle_exceptions(handlers=[
     ExceptionHandler(Exception, GENERIC_ERROR, HTTPStatus.INTERNAL_SERVER_ERROR)
 ])
@@ -25,7 +25,7 @@ def handler(event: dict, context: dict, height: int = None, weight: int = None):
     LOGGER.info("Some info message")
     return {
         "statusCode": 200,
-        "body": {
-            "bmi": height * weight
-        }
+        "body": json.dumps({
+            "bmi": round(weight / (height / 100)**2, 2)
+        })
     }
