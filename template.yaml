@@ -42,6 +42,25 @@ Resources:
           Parameters:
             Location: !Sub s3://${S3Bucket}/api-contract.yaml
       StageName: Prod
+      Cors:
+        AllowOrigin: "'*'"
+        AllowHeaders: "'Content-Type,Authorization'"
+        AllowMethods: "'OPTIONS,POST,GET,PATCH'"
+      GatewayResponses:
+        UNAUTHORIZED:
+          ResponseParameters:
+            Headers:
+              Access-Control-Allow-Origin: "'*'"
+              Access-Control-Allow-Headers: "'Content-Type,Authorization'"
+              Access-Control-Allow-Methods: "'OPTIONS,POST,GET,PATCH'"
+        DEFAULT_5XX:
+          ResponseParameters:
+            Headers:
+              Access-Control-Allow-Origin: "'*'"
+              Access-Control-Allow-Headers: "'Content-Type,Authorization'"
+              Access-Control-Allow-Methods: "'OPTIONS,POST,GET,PATCH'"
+
+
   BMICalculatorLogGroup:
     Type: AWS::Logs::LogGroup
     Properties:

@@ -1,8 +1,8 @@
 from http import HTTPStatus
 import json
 
-from aws_lambda_decorators import (cors, log, extract_from_event, Parameter, Mandatory, Minimum, Type,
-                                   handle_exceptions, ExceptionHandler)
+from aws_lambda_decorators import (log, extract_from_event, Parameter, Mandatory, Minimum, Type, handle_exceptions,
+                                   ExceptionHandler)
 from src.logger import get_logger
 
 
@@ -12,7 +12,6 @@ LOGGER = get_logger(__name__)
 GENERIC_ERROR = "Internal error"
 
 
-@cors()
 @log(parameters=True, response=True)
 @handle_exceptions(handlers=[
     ExceptionHandler(Exception, GENERIC_ERROR, HTTPStatus.INTERNAL_SERVER_ERROR)
