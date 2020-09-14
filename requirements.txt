@@ -1,0 +1,8 @@
+bandit
+coverage
+dredd-hooks
+prospector
+pylint_quotes
+yq
+aws-lambda-decorators
+cfn-lint

@@ -1,0 +1,8 @@
+internal:
+  - common.py
+  - other_common.py
+  - utils/some_code.py
+  - utils/sub/code.py
+  - logger.py
+external:
+  - aws-lambda-decorators
