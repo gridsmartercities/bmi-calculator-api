@@ -39,7 +39,7 @@ Parameters:
     Description: Owner of git repo to clone, for example gridsmartercities
     Type: String
   GitHubRepo:
-    Description: Repo to clone, for example python-serverless-template
+    Description: Repo to clone, for example bmi-calculator-api
     Type: String
   GitHubToken:
     Description: The value of a GitHub Personal Access Token that has an API access to your repo

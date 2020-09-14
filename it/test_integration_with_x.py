@@ -1,5 +1,5 @@
 import unittest
-from src.a_lambda.a_lambda import handler
+from src.bmi.calculator import handler
 
 
 class IntegrationTests(unittest.TestCase):

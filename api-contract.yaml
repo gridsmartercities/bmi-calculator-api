@@ -4,57 +4,67 @@ info:
   title: AWS Python Serverless Template API
   description: An API to produce a simple AWS Python Serverless Template
 paths:
-  /alambda:
+  /bmi:
     get:
       description: gets something
+      parameters:
+        - in: query
+          name: height
+          description: The height in centimeters
+          schema:
+            type: number
+            format: int32
+          required: true
+          example: 180
+        - in: query
+          name: weight
+          description: The weight in kilograms
+          schema:
+            type: number
+            format: int32
+          required: true
+          example: 80
       responses:
-        "200":
+        200:
           description: success
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Response"
-        "500":
+                $ref: "#/components/schemas/BMIResponse"
+        400:
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        500:
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Response"
+                $ref: "#/components/schemas/Error"
       x-amazon-apigateway-integration:
         uri:
-          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ALambda.Arn}/invocations
-        passthroughBehavior: when_no_match
-        httpMethod: POST
-        type: aws_proxy
-  /blambda:
-    get:
-      description: gets something
-      responses:
-        "200":
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Response"
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Response"
-      x-amazon-apigateway-integration:
-        uri:
-          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${BLambda.Arn}/invocations
+          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${BMICalculator.Arn}/invocations
         passthroughBehavior: when_no_match
         httpMethod: POST
         type: aws_proxy
 components:
   schemas:
-    Response:
+    BMIResponse:
+      type: object
+      required:
+        - bmi
+      properties:
+        bmi:
+          type: number
+          format: int32
+          description: The Calculated BMI
+    Error:
       type: object
       required:
         - message
       properties:
         message:
           type: string
-          description: The Error message
+          title: The Error message

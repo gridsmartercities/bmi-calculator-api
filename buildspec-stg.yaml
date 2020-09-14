@@ -1,12 +1,12 @@
 version: 0.2
 env:
   variables:
-    SERVICE_NAME:             "python-serverless-template"
+    SERVICE_NAME:             "bmi-calculator-api"
   parameter-store:
-    SAM_S3_BUCKET:            "/python-serverless-template/build/SAM_S3_BUCKET"
-    GITHUB_OWNER:             "/python-serverless-template/build/GITHUB_OWNER"
-    GITHUB_REPO:              "/python-serverless-template/build/GITHUB_REPO"
-    GITHUB_TOKEN:             "/python-serverless-template/build/GITHUB_TOKEN"
+    SAM_S3_BUCKET:            "/bmi-calculator-api/build/SAM_S3_BUCKET"
+    GITHUB_OWNER:             "/bmi-calculator-api/build/GITHUB_OWNER"
+    GITHUB_REPO:              "/bmi-calculator-api/build/GITHUB_REPO"
+    GITHUB_TOKEN:             "/bmi-calculator-api/build/GITHUB_TOKEN"
 
 phases:
   install:
