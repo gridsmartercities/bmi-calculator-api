@@ -12,16 +12,20 @@ paths:
           name: height
           description: The height in centimeters
           schema:
-            type: number
+            type: integer
             format: int32
+            minimum: 1
+            maximum: 999
           required: true
           example: 180
         - in: query
           name: weight
           description: The weight in kilograms
           schema:
-            type: number
+            type: integer
             format: int32
+            minimum: 1
+            maximum: 999
           required: true
           example: 80
       responses:
@@ -58,7 +62,7 @@ components:
       properties:
         bmi:
           type: number
-          format: int32
+          format: float
           description: The Calculated BMI
     Error:
       type: object
