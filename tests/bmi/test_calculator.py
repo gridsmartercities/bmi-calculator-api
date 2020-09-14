@@ -15,5 +15,5 @@ class CalculatorTests(unittest.TestCase):
         }
         response = handler(event, None)
         self.assertEqual(200, response["statusCode"])
-        self.assertEqual("""{"bmi": 14400}""", response["body"])
+        self.assertEqual("""{"bmi": 24.69}""", response["body"])
         mock_logger.info.assert_called_once_with("Some info message")

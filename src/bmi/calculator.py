@@ -26,6 +26,6 @@ def handler(event: dict, context: dict, height: int = None, weight: int = None):
     return {
         "statusCode": 200,
         "body": {
-            "bmi": height * weight
+            "bmi": round(weight / (height / 100)**2, 2)
         }
     }
