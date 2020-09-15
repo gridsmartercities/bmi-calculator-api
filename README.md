@@ -6,7 +6,7 @@ A small API to calculate the BMI for a given height and weight
 
 ## How to use this project
 
-1. You will need to have python3 and an IDE (PyCharm, visual studio code) installed.
+1. You will need to have python3 and an IDE (PyCharm, Visual Studio Code) installed.
 
 2. Clone the repository to your machine.
 
