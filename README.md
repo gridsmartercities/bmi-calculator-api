@@ -14,23 +14,23 @@ A small API to calculate the BMI for a given height and weight
 
 4. Install project requirements. You can do this from the IDE if using PyCharm (you'll be prompted as soon as you open a python file), or you can open a terminal and run this:
 
-`pip3 install -r requirements.txt`
+ `pip3 install -r requirements.txt`
 
 5. You can then run unit tests by running: 
 
-`coverage run --branch -m unittest`
+ `coverage run --branch -m unittest`
 
 6. Set up a BASE_URL environment variable that points to https://mnqmg5khn4.execute-api.eu-west-2.amazonaws.com/Prod (this is a pre-prepared URL for the BMI API, that simulates an staging environment). 
 
-On a Mac terminal, you can run:
+ On a Mac terminal, you can run:
 
-`export BASE_URL=https://mnqmg5khn4.execute-api.eu-west-2.amazonaws.com/Prod`
+ `export BASE_URL=https://mnqmg5khn4.execute-api.eu-west-2.amazonaws.com/Prod`
 
-On a windows terminal:
+ On a windows terminal:
 
-`setx BASE_URL "https://mnqmg5khn4.execute-api.eu-west-2.amazonaws.com/Prod"`
+ `setx BASE_URL "https://mnqmg5khn4.execute-api.eu-west-2.amazonaws.com/Prod"`
 
 7. You can run the contract tests by executing: 
 
-```python -m unittest it/test_contract.py```
+ `python -m unittest it/test_contract.py`
 
