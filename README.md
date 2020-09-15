@@ -8,7 +8,11 @@ A small API to calculate the BMI for a given height and weight
 
 You will need to have python3 installed.
 
-Clone the repository to your machine, create and activate a python virtual environment, and run pip3 install -r requirements.txt to get all the dependencies for the project
+Clone the repository to your machine, create and activate a python virtual environment, and run 
+
+```pip3 install -r requirements.txt```
+
+to get all the dependencies for the project.
 
 You can then run unit tests by running: 
 
