@@ -1,6 +1,7 @@
 import os
-import requests
 import unittest
+
+import requests
 
 
 BASE_URL = os.environ.get("BASE_URL", None)
