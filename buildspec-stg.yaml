@@ -39,7 +39,7 @@ phases:
       # Remove all unneeded s3 folders inside SAM_S3_BUCKET
       - aws s3 rm s3://$SAM_S3_BUCKET/stg --recursive > /dev/null
       # Get the ApiGateway Base URL
-      - export BASE_URL=$(./tools/build/get-api-url.sh $SERVICE_NAME-prod-apis)
+      - export BASE_URL=$(./tools/build/get-api-url.sh $SERVICE_NAME-apis-prod)
       - echo BASE_URL is $BASE_URL
       # Run the integration tests
       - python -m unittest it/test_*.py
