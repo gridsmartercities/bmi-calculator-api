@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::Serverless-2016-10-31
-Description: An AWS Serverless Specification template for the AWS Python Serverless Template
+Description: An AWS Serverless Specification template for a BMI test project
 Parameters:
   ServiceName:
     Type: String
@@ -30,6 +30,19 @@ Resources:
             Path: /bmi
             Method: GET
       CodeUri: ./bmi
+  WeightCalculator:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: weight_calculator.handler
+      Description: returns weight for healthy BMI based on height
+      Events:
+        WeightCalculatorApi:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiGateway
+            Path: /ideal-weight
+            Method: GET
+      CodeUri: ./weight
   ApiGateway:
     Type: AWS::Serverless::Api
     Properties:
@@ -65,3 +78,8 @@ Resources:
     Type: AWS::Logs::LogGroup
     Properties:
       LogGroupName: !Sub /aws/lambda/${BMICalculator}
+
+  WeightCalculatorLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub /aws/lambda/${WeightCalculator}
