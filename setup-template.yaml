@@ -214,6 +214,7 @@ Resources:
               - lambda:TagResource
               - lambda:UntagResource
               - lambda:UpdateFunctionConfiguration
+              - lambda:GetFunction
             Resource: !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:${ServiceName}-stack-*
           - Effect: Allow
             Action:
