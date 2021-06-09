@@ -214,6 +214,7 @@ Resources:
               - lambda:TagResource
               - lambda:UntagResource
               - lambda:UpdateFunctionConfiguration
+              - lambda:GetFunction
             Resource: !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:${ServiceName}-stack-*
           - Effect: Allow
             Action:
@@ -304,7 +305,7 @@ Resources:
     Type: AWS::Logs::LogGroup
     Properties:
       LogGroupName: !Sub /aws/codebuild/${CodebuildStgProject}
-  ApiGatewayLogGroup:
-    Type: AWS::Logs::LogGroup
-    Properties:
-      LogGroupName: /aws/apigateway/welcome
+#  ApiGatewayLogGroup:
+#    Type: AWS::Logs::LogGroup
+#    Properties:
+#      LogGroupName: /aws/apigateway/welcome
