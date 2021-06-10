@@ -19,7 +19,7 @@ phases:
       # Give execute permissions to all build scripts
       - chmod +x ./tools/build/*.sh
       # Install Hub CLI for GitHub
-      - ./tools/build/hub-installer.sh && PATH=$PATH:/opt/tools/hub/bin
+      - ./tools/build/hub-installer.sh && PATH=$PATH:/opt/hub/bin
       # Installing Python dependencies
       - pip3 install -q aws-sam-cli aws-lambda-decorators yq
   build:
