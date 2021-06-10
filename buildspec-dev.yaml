@@ -12,7 +12,7 @@ phases:
   install:
     runtime-versions:
       python: 3.7
-      nodejs: 10
+      nodejs: 14
     commands:
       # Disable SAM TELEMETRY
       - export SAM_CLI_TELEMETRY=0
